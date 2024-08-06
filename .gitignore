@@ -1,0 +1,41 @@
+# Built application files
+*bin/*
+*obj/*
+*out/*
+
+# NuGet Packages
+*packages/
+*.nupkg
+
+# Visual Studio and VS Code metadata
+*.vs/
+*.vscode/
+*.user
+*.suo
+*.userprefs
+
+# Run-time data
+*wwwroot/dist/
+*logs/
+*cache/
+
+# Environment-specific config files
+*appsettings.json
+*appsettings.*.json
+*.config
+*launchSettings.json
+
+# Node modules
+*node_modules/
+
+# OS generated files
+.DS_Store
+*Thumbs.db
+
+# Log files
+*.log
+
+# Environment variables
+*.env
+*.prettier
+*.cr

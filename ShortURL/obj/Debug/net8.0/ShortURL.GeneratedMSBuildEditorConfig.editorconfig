@@ -1,0 +1,67 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = ShortURL
+build_property.RootNamespace = ShortURL
+build_property.ProjectDir = C:\Users\RicardoCarvalheira\Documents\localrepos\ShortURLProject\ShortURL\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\RicardoCarvalheira\Documents\localrepos\ShortURLProject\ShortURL
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/Components/LoginDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMb2dpbkRpc3BsYXkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/Components/RedirectToLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSZWRpcmVjdFRvTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/Pages/Authentication.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/Pages/Shorturl.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcnR1cmwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/Pages/UrlList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXJsTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/Components/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNYWluTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-7ygord8a4e
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/Components/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xOYXZNZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-9a75lsp77z
+
+[C:/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/ShortURL/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-dukkiemc4l
