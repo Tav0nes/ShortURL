@@ -1,41 +1,37 @@
-# Built application files
-*bin/*
-*obj/*
-*out/*
+# Ignore MySQL data files
+mysql-data/
+*.pem
+#ib_16384_*.dblwr
+ib_buffer_pool
+ibdata1
+#innodb_redo
+#innodb_temp
+undo_*
 
-# NuGet Packages
-*packages/
-*.nupkg
+# Ignore build output directories
+ShortURL/bin/
+ShortURL/obj/
 
-# Visual Studio and VS Code metadata
-*.vs/
-*.vscode/
+# Ignore user-specific files
 *.user
 *.suo
-*.userprefs
+*.swp
 
-# Run-time data
-*wwwroot/dist/
-*logs/
-*cache/
+# Ignore Visual Studio files
+.vs/
+*.vscode
 
-# Environment-specific config files
-*appsettings.json
-*appsettings.*.json
-*.config
-*launchSettings.json
-
-# Node modules
-*node_modules/
-
-# OS generated files
+# Ignore any other unwanted files
 .DS_Store
-*Thumbs.db
+Thumbs.db
 
-# Log files
+# Ignore the following file types
 *.log
+*.tmp
 
-# Environment variables
-*.env
-*.prettier
-*.cr
+# Ignore compiled output
+*.dll
+*.exe
+
+# Ignore backup files
+*~
