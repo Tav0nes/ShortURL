@@ -1,22 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ShortURL.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Net.Http.Json;
+using SharedModels.Models;
 
 namespace ShortURL.Services
 {
     public class UrlListService
     {
-        private readonly AppDbContext _context;
+        private readonly HttpClient _httpClient;
 
-        public UrlListService(AppDbContext context)
+        public UrlListService(HttpClient httpClient)
         {
-            _context = context;
+            _httpClient = httpClient;
+            _httpClient.BaseAddress = new Uri("https://localhost:8081/");
+
         }
 
         public async Task<List<URL>> OnListAsync()
         {
-            return await _context.URLs.ToListAsync();
+            // Call the API endpoint to get the list of URLs
+            return await _httpClient.GetFromJsonAsync<List<URL>>("api/urls");
         }
     }
 }

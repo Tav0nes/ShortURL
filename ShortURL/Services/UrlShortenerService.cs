@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Linq.Expressions;
 using ShortURL;
-using ShortURL.Models;
+using SharedModels.Models;
 
 namespace ShortURL.Services
 {
