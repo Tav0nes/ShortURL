@@ -12,13 +12,16 @@ undo_*
 ShortURL/bin/
 ShortURL/obj/
 
+ShortUrlWebAPI/bin/
+ShortUrlWebAPI/obj/
+
 # Ignore user-specific files
 *.user
 *.suo
 *.swp
 
 # Ignore Visual Studio files
-.vs/
+*.vs/
 *.vscode
 
 # Ignore any other unwanted files

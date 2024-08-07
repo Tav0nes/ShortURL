@@ -7,8 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("MySqlConnection"),
-                     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MySqlConnection"))));
+    options.UseMySql(builder.Configuration.GetConnectionString("MySqlConnection")
+    ,
+                     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MySqlConnection"))
+                     ));
 
 
 builder.Services.AddControllers();
@@ -19,11 +21,12 @@ builder.Services.AddSwaggerGen();
 // Configure CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowBlazorClient",
-        policy => policy
-            .WithOrigins("https://localhost:56608")
-            .AllowAnyMethod()
-            .AllowAnyHeader());
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("https://localhost:56608")
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
 });
 
 var app = builder.Build();
@@ -37,7 +40,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowBlazorClient");
+app.UseCors();
 
 app.UseAuthorization();
 

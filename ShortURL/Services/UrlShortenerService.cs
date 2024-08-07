@@ -14,10 +14,9 @@ namespace ShortURL.Services
     {
         private readonly HttpClient _httpClient;
 
-        public UrlShortenerService(HttpClient httpClient)
+        public UrlShortenerService(IHttpClientFactory httpClient)
         {
-            _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("https://api.tinyurl.com/");
+            _httpClient = httpClient.CreateClient("TinyUrlApi");
         }
 
         public async Task ShortenerUrlAsync(URL request)

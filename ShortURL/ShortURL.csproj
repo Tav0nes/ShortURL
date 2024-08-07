@@ -8,11 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Properties\appsettings.json" />
+    <Compile Remove="Models\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Models\AppDbContext.cs" />
+    <_ContentIncludedByDefault Remove="Properties\appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +27,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
     <PackageReference Include="MySql.Data" Version="9.0.0" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.5" />
   </ItemGroup>

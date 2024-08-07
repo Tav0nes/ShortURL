@@ -34,4 +34,4 @@ services:
 volumes:
   mysql-data:
 networks:
-  mynetwork:  
+  mynetwork:
