@@ -47,8 +47,8 @@ var certificate = new X509Certificate2("/https/apiserver.pfx", "ricardo");
 // Configure Kestrel for HTTPS
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(8080); // HTTP
-    options.ListenAnyIP(8081, listenOptions =>
+    options.ListenAnyIP(80); // HTTP
+    options.ListenAnyIP(443, listenOptions =>
     {
         // Use loaded certificate
         listenOptions.UseHttps(certificate, httpsOptions =>
