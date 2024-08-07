@@ -1,0 +1,12 @@
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/bin/Debug/net8.0/SharedModels.deps.json
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/bin/Debug/net8.0/SharedModels.dll
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/bin/Debug/net8.0/SharedModels.pdb
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/obj/Debug/net8.0/SharedModels.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/obj/Debug/net8.0/SharedModels.AssemblyInfoInputs.cache
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/obj/Debug/net8.0/SharedModels.AssemblyInfo.cs
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/obj/Debug/net8.0/SharedModels.csproj.CoreCompileInputs.cache
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/obj/Debug/net8.0/SharedModels.sourcelink.json
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/obj/Debug/net8.0/SharedModels.dll
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/obj/Debug/net8.0/refint/SharedModels.dll
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/obj/Debug/net8.0/SharedModels.pdb
+/mnt/c/Users/RicardoCarvalheira/Documents/localrepos/ShortURLProject/SharedModels/obj/Debug/net8.0/ref/SharedModels.dll
