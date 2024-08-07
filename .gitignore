@@ -15,8 +15,10 @@ ShortURL/obj/
 ShortUrlWebAPI/bin/
 ShortUrlWebAPI/obj/
 
-SharedModels/obj/
+# Ignore bin and obj directories under SharedModels
 SharedModels/bin/
+SharedModels/obj/
+
 # Ignore user-specific files
 *.user
 *.suo
