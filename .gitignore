@@ -15,6 +15,8 @@ ShortURL/obj/
 ShortUrlWebAPI/bin/
 ShortUrlWebAPI/obj/
 
+SharedModels/obj/
+SharedModels/bin/
 # Ignore user-specific files
 *.user
 *.suo
@@ -38,3 +40,11 @@ Thumbs.db
 
 # Ignore backup files
 *~
+ShortUrlWebAPI/certs/
+ca/
+
+*.crt
+*.key
+ShortUrlWebAPI/.cr/
+*.aspnet
+my_openssl.cnf

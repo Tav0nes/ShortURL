@@ -23,6 +23,8 @@ services:
     ports:
       - "8080:80"
       - "8081:443"
+    volumes:
+      - ./ShortUrlWebAPI/certs:/https
     environment:
       ASPNETCORE_URLS: "https://+;http://+"
       ASPNETCORE_HTTPS_PORT: "8081"
