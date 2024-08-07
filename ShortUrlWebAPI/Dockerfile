@@ -20,7 +20,7 @@ WORKDIR /app
 RUN mkdir /https
 
 # Copy the server certificate PFX
-COPY ShortUrlWebAPI/certs/apiserver.pfx /https/apiserver.pfx
+COPY ShortUrlWebAPI/certs/shorturl.pfx /https/shorturl.pfx
 
 # Copy the published app
 COPY --from=publish /app/publish .

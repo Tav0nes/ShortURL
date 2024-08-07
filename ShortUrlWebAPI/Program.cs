@@ -42,7 +42,7 @@ builder.Services.AddCors(options =>
 });
 
 // Load the certificate from a PFX file
-var certificate = new X509Certificate2("/https/apiserver.pfx", "ricardo");
+var certificate = new X509Certificate2("/https/shorturl.pfx", "ricardo");
 
 // Configure Kestrel for HTTPS
 builder.WebHost.ConfigureKestrel(options =>
@@ -57,7 +57,6 @@ builder.WebHost.ConfigureKestrel(options =>
         });
     });
 });
-
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
