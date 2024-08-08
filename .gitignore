@@ -4,30 +4,16 @@
 
 # Certificates and keys
 /ca/
-/ca.crt
-/ca.key
-ShortUrlWebAPI/certs/
-
-# Docker-related files
-**/Dockerfile
-/docker-compose.yml
+*.crt
+*.key
+*.pem
+*.pfx
 
 # Images
 /images/
 
-# MySQL data files
-/mysql-data/
-
-# App settings
-**/appsettings*.json
-
 # User-specific files
 *.user
-
-# Visual Studio files
-*.sln
-*.csproj
-*.csproj.nuget.*
 
 # Logs
 *.log
@@ -52,5 +38,4 @@ Thumbs.db
 **/[Dd]ebug/
 **/[Rr]elease/
 
-# Visual Studio folder
-.vs/
+*.vs
