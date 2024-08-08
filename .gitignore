@@ -1,52 +1,56 @@
-# Ignore MySQL data files
-mysql-data/
-*.pem
-#ib_16384_*.dblwr
-ib_buffer_pool
-ibdata1
-#innodb_redo
-#innodb_temp
-undo_*
+# Compiled binary files
+**/bin/
+**/obj/
 
-# Ignore build output directories
-ShortURL/bin/
-ShortURL/obj/
+# Certificates and keys
+/ca/
+/ca.crt
+/ca.key
+ShortUrlWebAPI/certs/
 
-ShortUrlWebAPI/bin/
-ShortUrlWebAPI/obj/
+# Docker-related files
+**/Dockerfile
+/docker-compose.yml
 
-# Ignore bin and obj directories under SharedModels
-SharedModels/bin/
-SharedModels/obj/
+# Images
+/images/
 
-# Ignore user-specific files
+# MySQL data files
+/mysql-data/
+
+# App settings
+**/appsettings*.json
+
+# User-specific files
 *.user
-*.suo
-*.swp
 
-# Ignore Visual Studio files
-*.vs/
-*.vscode
+# Visual Studio files
+*.sln
+*.csproj
+*.csproj.nuget.*
 
-# Ignore any other unwanted files
+# Logs
+*.log
+
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# Ignore the following file types
-*.log
+# Temporary files
 *.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.old
 
-# Ignore compiled output
-*.dll
-*.exe
+# Other files generated during builds or local use
+**/project.assets.json
+**/project.nuget.cache
 
-# Ignore backup files
-*~
-ShortUrlWebAPI/certs/
-ca/
+# Ignore all debug and release folders
+**/[Dd]ebug/
+**/[Rr]elease/
 
-*.crt
-*.key
-ShortUrlWebAPI/.cr/
-*.aspnet
-my_openssl.cnf
+# Visual Studio folder
+.vs/
