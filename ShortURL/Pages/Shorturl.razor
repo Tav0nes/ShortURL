@@ -1,0 +1,56 @@
+﻿@page "/shorturl"
+@using System.ComponentModel.DataAnnotations
+@using System.Security.Cryptography
+@using ShortURL
+@inject ILogger<URL> Logger
+@inject IJSRuntime JSRuntime
+@inject UrlShortenerService UrlShortenerService
+@using System.Net.Http
+@using SharedModels.Models
+
+<PageTitle>URL Shortener</PageTitle>
+
+<h2>Paste the URL below to be shortened:</h2>
+
+<EditForm Model="Model" OnValidSubmit="HandleValidSubmit" FormName="shorturl">
+  <DataAnnotationsValidator />
+  <ValidationSummary />
+  <div class="mb-3">
+    <label class="form-label" for="OriginalURL">URL:</label>
+    <InputText class="form-control" id="OriginalURL" placeholder="Ex: www.google.com" @bind-Value="Model.OriginalURL" />
+  </div>
+  <div class="col-auto">
+    <span>
+    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    <button type="button" class="btn btn-danger mb-3" @onclick="ClearForm">Clear</button>
+    </span>
+  </div>
+  @if (!string.IsNullOrWhiteSpace(Model.ShortenedUrl))
+  {
+    <div class="col-auto">
+    <p>Shortened URL: @Model.ShortenedUrl</p>
+  </div>
+  }
+</EditForm>
+
+@code {
+  private EditContext _editContext;
+  public URL Model { get; set; } = new URL();
+
+  protected override void OnInitialized()
+  {
+    _editContext = new EditContext(Model);
+  }
+  private async Task ClearForm()
+  {
+    Model = new URL();
+    _editContext  = new EditContext(Model);    
+  }
+  private async Task HandleValidSubmit()
+  {
+    await UrlShortenerService.ShortenerUrlAsync(Model);
+    
+    @* Logger.LogInformation("URL = {url}", Model.OriginalURL);
+    Model.ShortenedUrl = GenerateShortURL(Model.OriginalURL); *@
+  }
+}

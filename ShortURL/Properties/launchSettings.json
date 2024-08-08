@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "ShortURL": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:56608;http://localhost:56609",
+      "nativeDebugging": true,
+      "sqlDebugging": true
+    }
+  }
+}

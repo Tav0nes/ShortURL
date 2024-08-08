@@ -1,0 +1,44 @@
+﻿@page "/urls"
+@using ShortURL
+@inject ILogger<URL> Logger
+@inject UrlListService UrlListService
+@using SharedModels.Models
+
+
+<PageTitle>Display</PageTitle>
+
+<h1>All URLs</h1>
+
+<p>
+    See below a list of all URLs submitted to the website.
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Original URL</th>
+            <th>Shortened URL</th>
+            <th>Date Created</th>
+            <th>Created By</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var url in urls)
+        {
+            <tr>
+                <td>@url.OriginalURL</td>
+                <td>@url.ShortenedUrl</td>
+                <td>@url.DateCreated</td>
+                <td>@url.CreatedBy</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<URL> urls = new List<URL>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        urls = await UrlListService.OnListAsync();
+    }
+}
