@@ -39,3 +39,4 @@ Thumbs.db
 **/[Rr]elease/
 
 *.vs
+ShortURL/wwwroot/css/sample-data/weather.json
