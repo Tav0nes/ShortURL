@@ -1,40 +1,42 @@
-# Built application files
-bin/*
-obj/*
-out/*
+# Compiled binary files
+**/bin/
+**/obj/
 
-# NuGet Packages
-packages/
-*.nupkg
+# Certificates and keys
+/ca/
+*.crt
+*.key
+*.pem
+*.pfx
 
-# Visual Studio and VS Code metadata
-.vs/
-.vscode/
+# Images
+/images/
+
+# User-specific files
 *.user
-*.suo
-*.userprefs
 
-# Run-time data
-wwwroot/dist/
-logs/
-cache/
+# Logs
+*.log
 
-# Environment-specific config files
-appsettings.json
-appsettings.*.json
-*.config
-
-# Node modules
-node_modules/
-
-# OS generated files
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# Log files
-*.log
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.old
 
-# Environment variables
-.env
-.prettier
-.cr
+# Other files generated during builds or local use
+**/project.assets.json
+**/project.nuget.cache
+
+# Ignore all debug and release folders
+**/[Dd]ebug/
+**/[Rr]elease/
+
+*.vs
+ShortURL/wwwroot/css/sample-data/weather.json
