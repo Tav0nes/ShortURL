@@ -30,14 +30,14 @@ builder.Services.AddHttpClient("WebApi", client =>
 });
 
 
-builder.Services.AddScoped<UrlShortenerService>(sp =>
+builder.Services.AddSingleton<UrlShortenerService>(sp =>
 {
     var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
     return new UrlShortenerService(httpClientFactory);
 });
 //builder.Services.AddScoped<UrlListService>();
 
-builder.Services.AddScoped<UrlListService>(sp =>
+builder.Services.AddSingleton<UrlListService>(sp =>
 {
     var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
     return new UrlListService(httpClientFactory);
@@ -45,8 +45,8 @@ builder.Services.AddScoped<UrlListService>(sp =>
 
 builder.Services.AddOidcAuthentication(options =>
 {
-    //builder.Configuration.Bind("Oidc", options.ProviderOptions);
-    builder.Configuration.Bind("Local", options.ProviderOptions);
+    builder.Configuration.Bind("Oidc", options.ProviderOptions);
+    //builder.Configuration.Bind("Local", options.ProviderOptions);
 });
 
 await builder.Build().RunAsync();
