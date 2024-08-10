@@ -1,9 +1,11 @@
 ﻿@page "/urls"
+@using MudBlazor
 @using ShortURL
 @inject ILogger<URL> Logger
 @inject UrlListService UrlListService
 @using SharedModels.Models
-
+@using System.Net.Http.Json
+@inject HttpClient httpClient
 
 <PageTitle>Display</PageTitle>
 
@@ -12,33 +14,58 @@
 <p>
     See below a list of all URLs submitted to the website.
 </p>
-<table>
-    <thead>
-        <tr>
-            <th>Original URL</th>
-            <th>Shortened URL</th>
-            <th>Date Created</th>
-            <th>Created By</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var url in urls)
-        {
-            <tr>
-                <td>@url.OriginalURL</td>
-                <td>@url.ShortenedUrl</td>
-                <td>@url.DateCreated</td>
-                <td>@url.CreatedBy</td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<MudTable Items="@urls" Filter="new Func<URL,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">URLs</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>Original URL</MudTh>
+        <MudTh>Shortened URL</MudTh>
+        <MudTh>Date Created</MudTh>
+        <MudTh>Created By</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Original URL">@context.OriginalURL</MudTd>
+        <MudTd DataLabel="Shortened URL">@context.ShortenedUrl</MudTd>
+        <MudTd DataLabel="Date Created">@context.DateCreated</MudTd>
+        <MudTd DataLabel="Created By">@context.CreatedBy</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager />
+    </PagerContent>
+</MudTable>
 
 @code {
-    private List<URL> urls = new List<URL>();
+    private IEnumerable<URL> urls = new List<URL>();
 
     protected override async Task OnInitializedAsync()
     {
         urls = await UrlListService.OnListAsync();
     }
+
+    private bool dense = false;
+    private bool hover = true;
+    private bool striped = false;
+    private bool bordered = false;
+    private string searchString1 = "";
+    private URL selectedItem1 = new URL();
+    private HashSet<URL> selectedItems = new HashSet<URL>();
+
+    private bool FilterFunc1(URL element) => FilterFunc(element, searchString1);
+
+    private bool FilterFunc(URL element, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (element.ShortenedUrl.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (element.CreatedBy.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
+
+
 }

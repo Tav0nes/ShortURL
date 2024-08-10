@@ -5,17 +5,12 @@ using ShortURL.Services;
 using SharedModels.Models;
 using System;
 using System.Net.Http;
+using MudBlazor.Services;
 
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
-builder.RootComponents.Add<HeadOutlet>("head::after");
-
-//// Register HttpClient for TinyURL API
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://api.tinyurl.com/") });
-
-//// Register HttpClient for your Web API
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:8081") });
+builder.RootComponents.Add<HeadOutlet>("head::after"); 
 
 // Register HttpClient for TinyURL API
 builder.Services.AddHttpClient("TinyUrlApi", client =>
@@ -42,6 +37,8 @@ builder.Services.AddSingleton<UrlListService>(sp =>
     var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
     return new UrlListService(httpClientFactory);
 });
+
+builder.Services.AddMudServices();
 
 builder.Services.AddOidcAuthentication(options =>
 {
