@@ -5,11 +5,13 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    <!-- <RootNamespace>ShortURL</RootNamespace>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles> -->
   </PropertyGroup>
-
+<!-- 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Properties\appsettings.json" />
-  </ItemGroup>
+  </ItemGroup> -->
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
@@ -33,6 +35,19 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SharedModels\SharedModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <RazorComponent Include="App.razor" />
+    <RazorComponent Include="Components\LoginDisplay.razor" />
+    <RazorComponent Include="Components\RedirectToLogin.razor" />
+    <RazorComponent Include="Pages\Authentication.razor" />
+    <RazorComponent Include="Pages\Home.razor" />
+    <RazorComponent Include="Pages\Shorturl.razor" />
+    <RazorComponent Include="Pages\UrlList.razor" />
+    <RazorComponent Include="_Imports.razor" />
+    <RazorComponent Include="Components\MainLayout.razor" />
+    <RazorComponent Include="Components\NavMenu.razor" />
   </ItemGroup>
 
 </Project>
