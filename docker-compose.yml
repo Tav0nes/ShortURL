@@ -39,6 +39,16 @@ services:
         condition: service_healthy
     networks:
       - mynetwork
+  webui:
+    build:
+      context: .
+      dockerfile: ShortURL/Dockerfile
+    container_name: shorturlui-container
+    ports:
+      - "56608:80"
+      - "56609:443"
+    networks:
+      - mynetwork
 volumes:
   mysql-data:
 networks:

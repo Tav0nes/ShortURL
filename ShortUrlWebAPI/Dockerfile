@@ -4,6 +4,7 @@ WORKDIR /src
 COPY ["ShortUrlWebAPI/ShortUrlWebAPI.csproj", "ShortUrlWebAPI/"]
 COPY ["SharedModels/SharedModels.csproj", "SharedModels/"]
 RUN dotnet restore "ShortUrlWebAPI/ShortUrlWebAPI.csproj"
+
 COPY . .
 WORKDIR "/src/ShortUrlWebAPI"
 RUN dotnet build "ShortUrlWebAPI.csproj" -c Release -o /app/build
@@ -25,8 +26,7 @@ COPY ShortUrlWebAPI/certs/shorturl.pfx /https/shorturl.pfx
 # Copy the published app
 COPY --from=publish /app/publish .
 
-RUN apt-get update
-RUN apt-get install -y curl
+RUN apt-get update && apt-get install -y curl
 
 # Expose ports for HTTP and HTTPS
 EXPOSE 80
