@@ -1,0 +1,14 @@
+{
+  "name": "shorturl",
+  "version": "1.0.0",
+  "description": "1. Press `Win + R` to open the Run dialog.\r 2. Type `mmc` and press Enter to open the Microsoft Management Console.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.46.0",
+    "@types/node": "^22.3.0"
+  }
+}
