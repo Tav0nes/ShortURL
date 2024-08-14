@@ -45,11 +45,7 @@
     {
         urls = await UrlListService.OnListAsync();
     }
-
-    private bool dense = false;
-    private bool hover = true;
-    private bool striped = false;
-    private bool bordered = false;
+    
     private string searchString1 = "";
     private URL selectedItem1 = new URL();
     private HashSet<URL> selectedItems = new HashSet<URL>();
@@ -66,6 +62,4 @@
             return true;
         return false;
     }
-
-
 }

@@ -40,3 +40,4 @@ Thumbs.db
 
 *.vs
 ShortURL/wwwroot/css/sample-data/weather.json
+publish/

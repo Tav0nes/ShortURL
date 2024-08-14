@@ -11,11 +11,11 @@
     "ShortURL": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:56608",
+      "launchUrl": "https://localhost:56609",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:56608",
+      "applicationUrl": "https://localhost:56609",
       "nativeDebugging": true,
       "sqlDebugging": true
     },
@@ -27,18 +27,18 @@
       },
       "dotnetRunMessages": true,
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "http://localhost:56609"
+      "applicationUrl": "http://localhost:56608"
     },
     "https": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:56608",
+      "launchUrl": "https://localhost:56609",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "https://localhost:56608"
+      "applicationUrl": "https://localhost:56609"
     },
     "IIS Express": {
       "commandName": "IISExpress",
