@@ -17,7 +17,13 @@
       },
       "applicationUrl": "https://localhost:56609",
       "nativeDebugging": true,
-      "sqlDebugging": true
+      "sqlDebugging": true,
+      "applicationOptions": {
+        "applicationHost": {
+          "sslCertificateFilePath": "certs/localhost.pem",
+          "sslCertificateKeyFilePath": "certs/localhost-key.pem"
+        }
+      }
     },
     "http": {
       "commandName": "Project",
@@ -38,7 +44,13 @@
       },
       "dotnetRunMessages": true,
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "https://localhost:56609"
+      "applicationUrl": "https://localhost:56609",
+      "applicationOptions": {
+        "applicationHost": {
+          "sslCertificateFilePath": "certs/localhost.pem",
+          "sslCertificateKeyFilePath": "certs/localhost-key.pem"
+        }
+      }
     },
     "IIS Express": {
       "commandName": "IISExpress",

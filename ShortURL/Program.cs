@@ -18,12 +18,12 @@ builder.Services.AddHttpClient("TinyUrlApi", client =>
     client.BaseAddress = new Uri("https://api.tinyurl.com/");
 });
 
-// Register HttpClient for your Web API
+// Register HttpClient for your Web API with certificate handling
+
 builder.Services.AddHttpClient("WebApi", client =>
 {
     client.BaseAddress = new Uri("https://localhost:8081");
 });
-
 
 builder.Services.AddSingleton<UrlShortenerService>(sp =>
 {

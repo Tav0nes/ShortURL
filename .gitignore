@@ -41,3 +41,8 @@ Thumbs.db
 *.vs
 ShortURL/wwwroot/css/sample-data/weather.json
 publish/
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
