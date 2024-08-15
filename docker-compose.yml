@@ -1,7 +1,7 @@
 services:
-  mysql:
+  shorturlmysql:
     image: mysql:latest
-    container_name: mysql-container
+    container_name: shorturlmysql
     environment:
       MYSQL_ROOT_PASSWORD: my-secret-pw
       MYSQL_DATABASE: testdb
@@ -13,44 +13,54 @@ services:
       - mysql-data:/var/lib/mysql
       - ./ShortURLdb/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - mynetwork
+      - shorturl_mynetwork
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 30s
-  webapi:
+
+  shorturlapi:
     build:
       context: .
       dockerfile: ShortUrlWebAPI/Dockerfile
-    container_name: webapi-container
+    container_name: shorturlapi
     ports:
       - "8080:80"
-      - "8081:443"
-    volumes:
-      - ./ShortUrlWebAPI/certs:/https
-    environment:
-      ASPNETCORE_URLS: "http://0.0.0.0:80;https://0.0.0.0:443"
-      ASPNETCORE_HTTPS_PORT: "8081"
-      ASPNETCORE_ENVIRONMENT: "Development"
     depends_on:
-     mysql:
+     shorturlmysql:
         condition: service_healthy
     networks:
-      - mynetwork
-  webui:
+      - shorturl_mynetwork
+
+  shorturlui:
     build:
       context: .
       dockerfile: ShortURL/Dockerfile
-    container_name: shorturlui-container
+    container_name: shorturlui
     ports:
       - "56608:80"
-      - "56609:443"
     networks:
-      - mynetwork
+      - shorturl_mynetwork
+
+  nginxproxymanager:
+    image: 'jc21/nginx-proxy-manager:latest' 
+    container_name: nginxproxymanager
+    restart: unless-stopped 
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443' 
+    volumes:
+      - ./nginx/data:/data
+      - ./nginx/letsencrypt:/etc/letsencrypt
+    networks:
+      - shorturl_mynetwork
+
 volumes:
   mysql-data:
+    
 networks:
-  mynetwork:
+  shorturl_mynetwork:
     driver: bridge

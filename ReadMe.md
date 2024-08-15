@@ -56,3 +56,13 @@ curl -v http://localhost:8080/api/urls
 See what it curretly looks like:
 
 ![apihit](../images/apihit.png)
+
+
+Some files were encrypted using: git-crypt
+
+One can generate their certificates, but if you are a registered collaborator, you can decrypt the file using
+
+```
+brew install git-crypt
+git-crypt init
+```

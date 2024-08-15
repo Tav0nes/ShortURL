@@ -11,19 +11,21 @@
     "ShortURL": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:56609",
+      //"launchUrl": "https://localhost:56609",
+      "launchUrl": "http://localhost:56608",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:56609",
+      //"applicationUrl": "https://localhost:56609",
+      "applicationUrl": "http://localhost:56608",
       "nativeDebugging": true,
-      "sqlDebugging": true,
-      "applicationOptions": {
-        "applicationHost": {
-          "sslCertificateFilePath": "certs/localhost.pem",
-          "sslCertificateKeyFilePath": "certs/localhost-key.pem"
-        }
-      }
+      "sqlDebugging": true
+      //"applicationOptions": {
+      //  "applicationHost": {
+      //    "sslCertificateFilePath": "certs/localhost.pem",
+      //    "sslCertificateKeyFilePath": "certs/localhost-key.pem"
+      //  }
+      //}
     },
     "http": {
       "commandName": "Project",
@@ -35,23 +37,23 @@
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
       "applicationUrl": "http://localhost:56608"
     },
-    "https": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "https://localhost:56609",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "https://localhost:56609",
-      "applicationOptions": {
-        "applicationHost": {
-          "sslCertificateFilePath": "certs/localhost.pem",
-          "sslCertificateKeyFilePath": "certs/localhost-key.pem"
-        }
-      }
-    },
+    //"https": {
+    //  "commandName": "Project",
+    //  "launchBrowser": true,
+    //  "launchUrl": "https://localhost:56609",
+    //  "environmentVariables": {
+    //    "ASPNETCORE_ENVIRONMENT": "Development"
+    //  },
+    //  "dotnetRunMessages": true,
+    //  "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+    //  "applicationUrl": "https://localhost:56609",
+    //  "applicationOptions": {
+    //    "applicationHost": {
+    //      "sslCertificateFilePath": "certs/localhost.pem",
+    //      "sslCertificateKeyFilePath": "certs/localhost-key.pem"
+    //    }
+    //  }
+    //},
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,

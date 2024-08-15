@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using ShortUrlWebAPI.Data;
-using System.Security.Cryptography.X509Certificates;
 using Polly;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Set up logging
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
@@ -29,50 +29,64 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     );
 });
 
-
-// Configure CORS
+// Add CORS policies
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
+    options.AddPolicy("AllowSpecificOrigin1", policy =>
     {
-        policy.WithOrigins("https://localhost:56609")
+        policy.WithOrigins("https://shorturlui.byteurl.duckdns.org")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+
+    options.AddPolicy("AllowSpecificOrigin2", policy =>
+    {
+        policy.WithOrigins("http://localhost:56608")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+
+    options.AddPolicy("AllowSpecificOrigin3", policy =>
+    {
+        policy.WithOrigins("http://shorturlui.byteurl.duckdns.org")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
 });
 
-// Load the certificate from a PFX file
-var certificate = new X509Certificate2("/https/shorturl.pfx", "ricardo");
-
-// Configure Kestrel for HTTPS
-builder.WebHost.ConfigureKestrel(options =>
-{
-    options.ListenAnyIP(80); // HTTP
-    options.ListenAnyIP(443, listenOptions =>
-    {
-        // Use loaded certificate
-        listenOptions.UseHttps(certificate, httpsOptions =>
-        {
-            httpsOptions.SslProtocols = System.Security.Authentication.SslProtocols.Tls12;
-        });
-    });
-});
-
+// Add services for controllers and Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.Urls.Add("http://0.0.0.0:80");
+
+// Apply the "AllowAll" CORS policy
+app.UseCors("AllowAll");
+
+// Middleware setup
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-app.UseCors();
+//app.UseHttpsRedirection();  // Comment this out if testing without HTTPS
 app.UseAuthorization();
+
 app.MapControllers();
+
 app.Run();
+

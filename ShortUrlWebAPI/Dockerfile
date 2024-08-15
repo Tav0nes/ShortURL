@@ -17,11 +17,8 @@ RUN dotnet publish "ShortUrlWebAPI.csproj" -c Release -o /app/publish /p:UseAppH
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 
-# Create a directory for the certificate in the container
-RUN mkdir /https
-
 # Copy the server certificate PFX
-COPY ShortUrlWebAPI/certs/shorturl.pfx /https/shorturl.pfx
+#COPY ShortUrlWebAPI/certs/shorturl.pfx /https/shorturl.pfx
 
 # Copy the published app
 COPY --from=publish /app/publish .
@@ -30,7 +27,8 @@ RUN apt-get update && apt-get install -y curl
 
 # Expose ports for HTTP and HTTPS
 EXPOSE 80
-EXPOSE 443
+#SSL is handled by Nginx Proxy Manager
+#EXPOSE 443
 
 # Run the application
 ENTRYPOINT ["dotnet", "ShortUrlWebAPI.dll"]

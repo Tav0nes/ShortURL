@@ -8,7 +8,7 @@ namespace ShortURL;
 
 [Parallelizable(ParallelScope.Self)]
 [TestFixture]
-public class ExampleTest : PageTest
+public class WebUI : PageTest
 {
     private IBrowser _browser;
     private IPage _page;
@@ -51,7 +51,30 @@ public class ExampleTest : PageTest
     }
 
     [Test]
-    public async Task GetStartedLink()
+    public async Task HasTable()
+    {
+        // Navigate to the URL with SSL issues
+        await _page.GotoAsync("https://localhost:56609/urls");
+
+        // Expect a title "to contain" a substring
+        await Expect(_page.GetByText("URLs", new() { Exact = true }))
+    .ToBeVisibleAsync();
+    }
+
+
+    [Test]
+    public async Task HasInputPlaceholder()
+    {
+        // Navigate to the URL with SSL issues
+        await _page.GotoAsync("https://localhost:56609/shorturl");
+
+        // Expect a title "to contain" a substring
+        await Expect(_page.GetByPlaceholder("Ex: www.google.com")).ToBeVisibleAsync();
+    }
+
+
+    [Test]
+    public async Task GetListURLLink()
     {
         // Navigate to the URL with SSL issues
         await _page.GotoAsync("https://localhost:56609");

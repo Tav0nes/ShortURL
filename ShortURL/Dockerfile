@@ -27,15 +27,25 @@ COPY --from=build /app/publish/wwwroot .
 RUN chmod -R 755 /usr/share/nginx/html
 
 # Copy SSL certificates (assuming they are in ShortURL/certs)
-COPY ShortURL/certs/nginx.crt /etc/ssl/certs/nginx.crt
-COPY ShortURL/certs/nginx.key /etc/ssl/private/nginx.key
+#COPY ShortURL/certs/nginx.crt /etc/ssl/certs/nginx.crt
+#COPY ShortURL/certs/nginx.key /etc/ssl/private/nginx.key
 
-# Configure Nginx to serve the Blazor WebAssembly app over HTTP and HTTPS
+## Configure Nginx to serve the Blazor WebAssembly app over HTTP and HTTPS
+#RUN echo 'server { \
+    #listen 80; \
+    #listen 443 ssl; \
+    #ssl_certificate /etc/ssl/certs/nginx.crt; \
+    #ssl_certificate_key /etc/ssl/private/nginx.key; \
+    #location / { \
+        #root /usr/share/nginx/html; \
+        #index index.html; \
+        #try_files $uri $uri/ /index.html; \
+    #} \
+#}' > /etc/nginx/conf.d/default.conf
+
+# Basic Nginx configuration for serving the Blazor app over HTTP
 RUN echo 'server { \
     listen 80; \
-    listen 443 ssl; \
-    ssl_certificate /etc/ssl/certs/nginx.crt; \
-    ssl_certificate_key /etc/ssl/private/nginx.key; \
     location / { \
         root /usr/share/nginx/html; \
         index index.html; \
@@ -43,9 +53,11 @@ RUN echo 'server { \
     } \
 }' > /etc/nginx/conf.d/default.conf
 
+
 # Expose HTTP and HTTPS ports
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 
+# SSL is handled by Nginx Proxy Manage
+#EXPOSE 443
 
 # Run Nginx
 CMD ["nginx", "-g", "daemon off;"]

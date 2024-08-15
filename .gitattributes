@@ -1,0 +1,10 @@
+# Encrypt everything in the nginx directory
+# nginx/** filter=git-crypt diff=git-crypt
+
+# Encrypt everything in the mysql-data directory
+# mkysql-data/** filter=git-crypt diff=git-crypt
+
+# Encrypt specific sensitive files (if there are any not in the directories above)
+# nginx/data/custom_ssl/*.pem filter=git-crypt diff=git-crypt
+# nginx/data/keys.json filter=git-crypt diff=git-crypt
+# nginx/letsencrypt/**/*.json filter=git-crypt diff=git-crypt

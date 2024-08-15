@@ -22,7 +22,9 @@ builder.Services.AddHttpClient("TinyUrlApi", client =>
 
 builder.Services.AddHttpClient("WebApi", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:8081");
+    //client.BaseAddress = new Uri("https://localhost:8081");
+    client.BaseAddress = new Uri("http://localhost:8080");
+
 });
 
 builder.Services.AddSingleton<UrlShortenerService>(sp =>
