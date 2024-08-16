@@ -44,7 +44,7 @@ public class WebUI : PageTest
     public async Task HasTitle()
     {
         // Navigate to the URL with SSL issues
-        await _page.GotoAsync("https://localhost:56609");
+        await _page.GotoAsync("http://localhost:56608/");
 
         // Expect a title "to contain" a substring
         await Expect(_page).ToHaveTitleAsync(new Regex("Home"));
@@ -54,7 +54,7 @@ public class WebUI : PageTest
     public async Task HasTable()
     {
         // Navigate to the URL with SSL issues
-        await _page.GotoAsync("https://localhost:56609/urls");
+        await _page.GotoAsync("http://localhost:56608/urls");
 
         // Expect a title "to contain" a substring
         await Expect(_page.GetByText("URLs", new() { Exact = true }))
@@ -66,7 +66,7 @@ public class WebUI : PageTest
     public async Task HasInputPlaceholder()
     {
         // Navigate to the URL with SSL issues
-        await _page.GotoAsync("https://localhost:56609/shorturl");
+        await _page.GotoAsync("http://localhost:56608/shorturl");
 
         // Expect a title "to contain" a substring
         await Expect(_page.GetByPlaceholder("Ex: www.google.com")).ToBeVisibleAsync();
@@ -77,7 +77,7 @@ public class WebUI : PageTest
     public async Task GetListURLLink()
     {
         // Navigate to the URL with SSL issues
-        await _page.GotoAsync("https://localhost:56609");
+        await _page.GotoAsync("http://localhost:56608/");
 
         // Click the get started link
         await _page.GetByRole(AriaRole.Link, new() { Name = "List URL" }).ClickAsync();

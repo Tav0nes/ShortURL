@@ -44,7 +44,7 @@ public class WebAPI : PageTest
     public async Task HasTitle()
     {
         // Navigate to the URL with SSL issues
-        await _page.GotoAsync("https://localhost:56609");
+        await _page.GotoAsync("http://localhost:56608");
 
         // Expect a title "to contain" a substring
         await Expect(_page).ToHaveTitleAsync(new Regex("Home"));
@@ -54,7 +54,7 @@ public class WebAPI : PageTest
     public async Task GetStartedLink()
     {
         // Navigate to the URL with SSL issues
-        await _page.GotoAsync("https://localhost:56609");
+        await _page.GotoAsync("http://localhost:56608");
 
         // Click the get started link
         await _page.GetByRole(AriaRole.Link, new() { Name = "List URL" }).ClickAsync();
